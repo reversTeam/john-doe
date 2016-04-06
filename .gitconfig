@@ -1,0 +1,57 @@
+[user]
+	name = $GIT_NAME
+	email = $GIT_EMAIL
+[color]
+	ui = auto
+[alias]
+	st = status
+	ci = commit
+	lg = log --graph --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ar)%Creset'
+	oops = commit --amend -C HEAD
+[core]
+	excludesfile = /Users/revers/.gitignore_global
+	pager = cat
+
+	# If you want to use Sublime Text 2's subl wrapper:
+	editor = vim
+	whitespace = -trailing-space
+[diff]
+	mnemonicPrefix = true
+ 	wordRegex = .
+[fetch]
+	recurseSubmodules = on-demand
+[grep]
+	extendedRegexp = true
+[log]
+	abbrevCommit = true
+[merge]
+	conflictStyle = diff3
+[mergetool]
+	keepBackup = false
+	keepTemporaries = false
+	prompt = false
+[pull]
+	# This is GREAT… when you know what you're doing and are careful
+	# not to pull --no-rebase over a local line containing a true merge.
+	# rebase = true
+	# WARNING! This option, which does away with the one gotcha of
+	# auto-rebasing on pulls, is only available from 1.8.5 onwards.
+#	rebase = preserve
+[push]
+	default = upstream
+[rerere]
+	# If, like me, you like rerere, decomment these
+	autoupdate = true
+	enabled = true
+[status]
+	submoduleSummary = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true

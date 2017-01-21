@@ -1,6 +1,6 @@
 [user]
-	name = $GIT_NAME
-	email = $GIT_EMAIL
+	name = John Doe
+	email = John@Doe.me
 [color]
 	ui = auto
 [alias]

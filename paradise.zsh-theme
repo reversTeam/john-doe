@@ -22,11 +22,17 @@ RPS1='${return_code}'
 
 
 # color vars
+eval my_blue='$FG[039]'
 eval my_gray='$FG[237]'
 eval my_orange='$FG[214]'
 
+function _git_prompt_info_fast(){
+    branch=$(git branch | grep -Eo '^\* (.*)$' | grep -o "[a-zA-Z0-9_-]*$" 2> /dev/null) || return
+    echo "${my_blue}${branch}${resetcolor} | "
+}
+
 # right prompt
-RPROMPT='$(git_prompt_info)$my_orange%n@%m%{$reset_color%}'
+RPROMPT='$(_git_prompt_info_fast)$my_orange%n@%m%{$reset_color%}'
 
 # git settings
 ZSH_THEME_GIT_PROMPT_PREFIX="$FG[075]"

@@ -25,7 +25,7 @@ PROMPT2='%{$my_red%}\ %{$reset_color%}'
 RPS1='${return_code}'
 
 function _git_prompt_info_fast(){
-    branch=$(git branch 2> /dev/null | grep -Eo '^\* (.*)$' | grep -o "[a-zA-Z0-9_-]*$" 2> /dev/null) || return
+    branch=$(git branch 2> /dev/null | grep -Eo '^\* (.*)$' | grep -o "[a-zA-Z0-9/_-]*$" 2> /dev/null) || return
     echo "${my_orange}${branch}${resetcolor} | "
 }
 
